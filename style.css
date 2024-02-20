@@ -1,0 +1,195 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+
+body {
+  background-image: url("Фон.png");
+}
+
+i {
+  pointer-events: none;
+}
+
+.board {
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  /* width: 650px;
+  height: 450px; */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 30px;
+  box-shadow: 1px 0px 26px -1px rgba(34, 60, 80, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+.upper_row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  font-size: 26px;
+  align-items: center;
+  padding: 0 35px;
+}
+.upper_row div {
+  display: flex;
+}
+.upper_row p {
+  font-size: 21px;
+}
+
+.middle_row {
+  font-size: 24.2px;
+  text-align: center;
+  justify-content: space-evenly;
+  height: 60%;
+}
+.middle_row form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 10px;
+}
+.middle_row div {
+  margin: 10% auto;
+}
+.middle_row input {
+  display: block;
+  height: 40px;
+  line-height: 10px;
+  border-radius: 40px;
+  font-size: 120%;
+  padding: 25px;
+  width: 90%;
+  margin: 0 auto;
+}
+.middle_row input::placeholder {
+  font-size: 20px;
+  position: relative;
+  bottom: 4.5px;
+}
+#start {
+  display: block;
+  padding: 0;
+  height: 52.5px;
+  background-color: #fff;
+}
+
+.table {
+  display: grid;
+  min-width: 500px;
+  max-width: 1000px;
+  gap: 10px;
+}
+
+.card {
+  display: flex;
+  aspect-ratio: 1;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  border-radius: 5px;
+  border: 1px solid #000;
+}
+
+.card.flip {
+  animation: flip;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+}
+@keyframes flip {
+  0% {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  50% {
+    background-color: rgba(255, 255, 255, 0.6);
+    transform: translateY(-5%);
+  }
+  100% {
+    transform: translateY(0);
+    background-color: rgba(0, 0, 0, 0);
+  }
+}
+
+.flipped-icon {
+  display: none;
+}
+
+.card.flip .flipped-icon {
+  display: block;
+}
+
+.card.flip .default-icon {
+  display: none;
+}
+
+.table__button {
+  padding: 10px;
+  border-radius: 50px;
+  margin-top: 20px;
+  font-size: 30px;
+}
+
+.card.successfully {
+  animation: succ;
+  animation-duration: 1s;
+  transform: scale(0.95);
+  background-color: rgb(100, 255, 100);
+}
+@keyframes succ {
+  0% {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  100% {
+    background-color: rgb(100, 255, 100);
+  }
+}
+
+.confetti {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 10%;
+  width: 80%;
+  height: 100vh;
+  z-index: 1;
+  pointer-events: none;
+}
+
+@keyframes moveDown {
+  100% {
+    top: 110%;
+    transform: rotate(360deg);
+  }
+}
+
+.non_clickable {
+  position: fixed;
+  bottom: 15%;
+  right: 3.5%;
+  width: 520px;
+  height: 600px;
+  z-index: 2;
+}
+.can-click {
+  pointer-events: none;
+}
+
+.upper_row input {
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 3px;
+  font-size: 20px;
+  margin-left: 5px;
+  width: fit-content;
+}
+
+.dspn {
+  display: none;
+}
